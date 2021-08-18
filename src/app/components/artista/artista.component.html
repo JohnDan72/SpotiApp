@@ -1,0 +1,67 @@
+<!-- <div class="myParallax row align-items-center mb-4">
+    <div class="col-12 col-lg-4 d-flex justify-content-center">
+        <img [src]="artista.images | noimage" class="artist-image img-fluid p-0 p-lg-4 mb-3 mb-lg-0" alt="">
+    </div>
+    <div class="col-12 col-lg-8">
+        <h3 class="text-center">
+            {{artista.name | slice:0:20}}
+        </h3>
+    </div>
+</div> -->
+<app-loading *ngIf="loading"></app-loading>
+
+<div class="container my-4 animated fadeIn" *ngIf="!loading">
+    <div class="row">
+        <div class="col-12 col-lg-3 d-flex justify-content-center">
+            <img [src]="artista.images | noimage" class="img-circle img-fluid p-0 p-lg-4 mb-3 mb-lg-0" alt="">
+        </div>
+        <div class="col-12 col-lg-6 my-auto">
+            <h3 class="text-lg-left text-center">
+                {{artista.name | slice:0:20}}
+            </h3>
+            <a [href]="artista.external_urls.spotify" target="_blank" class="btn my-link">
+                    Página del artista
+                </a>
+        </div>
+        <div class="col-12 col-lg-3 my-auto d-flex justify-content-center">
+            <button routerLink="/search" class="btn back-btn">
+                Regresar
+            </button>
+        </div>
+
+        <div class="col-12 text-lg-left text-center mt-4">
+            <h4>Populares</h4>
+        </div>
+        <div class="col-12 mt-4 table-responsive">
+            <table class="table table-hover">
+                <!-- <thead>
+                    <tr>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Album</th>
+                        <th scope="col">Canción</th>
+                        <th scope="col">Vista previa</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <tr *ngFor="let topTrack of topTracks; let ind = index">
+                        <td valign="middle">{{ind+1}}</td>
+                        <td><img [src]="topTrack.album.images | noimage" class="" alt="" width="50px"></td>
+                        <td>{{topTrack.album.name}}</td>
+                        <td>{{topTrack.name}}</td>
+                        <td>{{topTrack.duration_ms | date:'mm:ss'}}</td>
+                        <td>
+                            <!-- <audio [src]="topTrack.preview_url" controls></audio> -->
+                            <!-- <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> </td> -->
+                            <iframe [src]="topTrack.uri | domSeguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <div class="col-12 mt-3">
+            <button (click)="seeMore = !seeMore" class="btn btn-see-more">
+                ver más
+            </button>
+        </div> -->
+    </div>
+</div>

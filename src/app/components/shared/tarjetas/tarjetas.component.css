@@ -1,0 +1,38 @@
+.card-spoti {
+    transition: 0.3s;
+    background-color: var(--secondary-color);
+    color: var(--grey-lighten-4);
+    align-items: center;
+    border-radius: 10px;
+    height: 350px;
+}
+
+.card-spoti:hover {
+    transition: 0.3s;
+    background-color: var(--grey-darken-3);
+    color: var(--grey-lighten-3);
+    align-items: center;
+    border-radius: 10px;
+    height: 350px;
+}
+
+.card-body {
+    color: var(--grey-lighten-5);
+}
+
+.img-spoti-card {
+    /* width: 90%; */
+    padding: 20px;
+    border-radius: 30px;
+    max-height: 70%;
+}
+
+@media (max-width: 760px) {
+    .card-spoti {
+        background-color: var(--secondary-color);
+        color: var(--grey-lighten-4);
+        align-items: center;
+        border-radius: 10px;
+        height: auto;
+    }
+}

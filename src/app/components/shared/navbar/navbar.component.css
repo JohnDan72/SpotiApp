@@ -1,0 +1,14 @@
+.navbar {
+    background-color: var(--grey-darken-4);
+    color: var(--grey-lighten-5);
+}
+
+a {
+    background-color: var(--grey-darken-4);
+    color: var(--grey-lighten-5);
+}
+
+a:hover {
+    background-color: var(--grey-darken-4);
+    color: var(--grey-lighten-1);
+}

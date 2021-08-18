@@ -1,0 +1,40 @@
+<!-- <div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <input type="text" class="form-control" #id_busqueda aria-describedby="emailHelp" placeholder="Busca un artista" (keyup)="buscarArtista(id_busqueda.value)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-md-4 col-lg-3 mt-3" *ngFor="let artist of artistSearched; let ind = index">
+            <div class="card card-spoti">
+                <img [src]="artist.images | noimage" class="card-img-top img-spoti-card" alt="">
+
+                <div class="card-body w-100">
+                    <h5>{{artist.name}}</h5>
+                    <h6 class="text-muted">{{artist.popularity | percent:'2.0-0'}}</h6>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <input type="text" class="form-control" #id_busqueda aria-describedby="emailHelp" placeholder="Busca un artista" (keyup)="buscarArtista(id_busqueda.value)" />
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="row" *ngIf="artistSearched">
+        <div class="col-6 col-md-4 col-lg-3 mt-3" *ngFor="let artist of artistSearched; let ind = index">
+            <app-tarjetas [tarjeta]="artist" [isArtist]="true"></app-tarjetas>
+        </div>
+    </div>
+</div>

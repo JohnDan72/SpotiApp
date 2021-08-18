@@ -1,0 +1,10 @@
+<div *ngIf="tarjeta" (click)="verArtista(tarjeta)" class="card card-spoti animated fadeIn puntero">
+    <img [src]="tarjeta.images | noimage" class="card-img-top img-spoti-card" alt="">
+
+    <div class="card-body w-100">
+        <h5>{{tarjeta.name | slice:0:20}}</h5>
+        <h6 *ngIf="!isArtist" class="text-muted">{{tarjeta.artists[0].name | slice:0:20}}</h6>
+        <h6 *ngIf="isArtist" class="text-muted">Popularidad: {{(tarjeta.popularity/100) | percent:'2.0-2'}}</h6>
+
+    </div>
+</div>
